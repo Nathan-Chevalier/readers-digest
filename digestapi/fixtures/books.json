@@ -1,0 +1,62 @@
+[
+    {
+        "model": "digestapi.book",
+        "pk": 1,
+        "fields": {
+            "title": "The Hitchhiker's Guide to the Galaxy",
+            "author": "Douglas Adams", 
+            "isbn_number": "1234565432",
+            "cover_image": "https://api.time.com/wp-content/uploads/2014/10/hitchhiker-s-guide-douglas-adams-657242_451_700.jpg",
+            "categories": [1],
+            "user_id": 1
+        }
+    },
+    {
+        "model": "digestapi.book",
+        "pk": 2,
+        "fields": {
+            "title": "Book of Five Rings",
+            "author": "Miyamoto Musashi", 
+            "isbn_number": "12324242432",
+            "cover_image": "https://m.media-amazon.com/images/I/81z1jYu6NqL._AC_UF1000,1000_QL80_.jpg",
+            "categories": [1,2,3,4],
+            "user_id": 2
+        }
+    },
+    {
+        "model": "digestapi.book",
+        "pk": 3,
+        "fields": {
+            "title": "Making it So: A Memoir",
+            "author": "Patrick Stewart", 
+            "isbn_number": "1232424243223",
+            "cover_image": "https://m.media-amazon.com/images/I/71EnzPvuZ+L._AC_UF1000,1000_QL80_.jpg",
+            "categories": [4],
+            "user_id": 2
+        }
+    },
+    {
+        "model": "digestapi.book",
+        "pk": 4,
+        "fields": {
+            "title": "The Alchemist",
+            "author": "Paulo Coelho", 
+            "isbn_number": "123242342",
+            "cover_image": "https://m.media-amazon.com/images/I/71zHDXu1TaL._AC_UF1000,1000_QL80_.jpg",
+            "categories": [1,5],
+            "user_id": 1
+        }
+    },
+    {
+        "model": "digestapi.book",
+        "pk": 5,
+        "fields": {
+            "title": "Quantum Physics for Babies",
+            "author": "Chris Ferrie", 
+            "isbn_number": "12324242432",
+            "cover_image": "https://m.media-amazon.com/images/I/81ifN3C9vaL._AC_UF1000,1000_QL80_.jpg",
+            "categories": [3],
+            "user_id": 2
+        }
+    }
+]
