@@ -22,12 +22,14 @@ class ReviewViewSet(viewsets.ViewSet):
 
     def list(self, request):
         # Get all reviews
+        reviews = Review.objects.all()
+        
 
         # Serialize the objects, and pass request to determine owner
         serializer = ReviewSerializer(reviews, many=True, context={'request': request})
 
         # Return the serialized data with 200 status code
-
+        return Response(serializer.data)
 
     def create(self, request):
         # Create a new instance of a review and assign property
@@ -37,7 +39,7 @@ class ReviewViewSet(viewsets.ViewSet):
         review.book = Book.objects.get(pk=request.data['book_id'])
         review.rating = request.data.get('rating')
         review.comment = request.data.get('comment')
-        # Save the review
+        # Save the review, creating a timestamp
         review.save()
         review.date = review.date.strftime("%Y-%m-%d")
 
