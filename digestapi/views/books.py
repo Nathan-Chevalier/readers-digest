@@ -1,8 +1,10 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework import serializers
-from digestapi.models import Book
+from digestapi.models import Book, Review
 from .categories import CategorySerializer
+from .reviews import ReviewSerializer
+from django.contrib.auth.models import User
 
 
 class BookSerializer(serializers.ModelSerializer):
@@ -10,6 +12,7 @@ class BookSerializer(serializers.ModelSerializer):
     # with expanded related resource. By default, this would
     # be a list of integers (e.g. [2, 4, 9]).
     categories = CategorySerializer(many=True)
+    reviews = ReviewSerializer(many=True)
 
     # Declare that an ad-hoc property should be included in JSON
     is_owner = serializers.SerializerMethodField()
@@ -21,7 +24,7 @@ class BookSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Book
-        fields = ['id', 'title', 'author', 'isbn_number', 'cover_image', 'is_owner', 'categories']
+        fields = ['id', 'title', 'author', 'isbn_number', 'cover_image', 'is_owner', 'categories', 'reviews']
 
 
 class BookViewSet(viewsets.ViewSet):
