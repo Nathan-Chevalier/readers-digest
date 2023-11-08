@@ -3,13 +3,21 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from digestapi.models import Review, Book
 from rest_framework import permissions
+from django.contrib.auth.models import User
+
+class UserReviewSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name',]
 
 class ReviewSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
+    user = UserReviewSerializer(many=False)
 
     class Meta:
         model = Review
-        fields = ['id', 'book', 'user', 'rating', 'comment', 'date', 'is_owner']
+        fields = ['id', 'book', 'user', 'rating', 'comment', 'date', 'is_owner',]
         read_only_fields = ['user']
 
     def get_is_owner(self, obj):
